@@ -26,16 +26,6 @@ fun main() {
 
     val txt = object {}::class.java.classLoader.getResource("day4.txt")?.readText(Charset.defaultCharset()).orEmpty()
 
-    val text = "MMMSXXMASM\n" +
-            "MSAMXMSMSA\n" +
-            "AMXSXMAAMM\n" +
-            "MSAMASMSMX\n" +
-            "XMASAMXAMM\n" +
-            "XXAMMXXAMA\n" +
-            "SMSMSASXSS\n" +
-            "SAXAMASAAA\n" +
-            "MAMMMXMMMM\n" +
-            "MXMXAXMASX"
     // Part 1
     val matrix = txt.lines().map { it.toCharArray().toList() }
     val wordsSum = (0..matrix[0].size - 1).flatMap { i ->
@@ -59,7 +49,7 @@ fun main() {
 fun findNextPositionWithWordInMatrix(i: Int, j: Int, position: Pair<Int, Int>,  matrix: List<List<Char>>, c: Char): Boolean {
     val xx = i + position.first
     val yy = j + position.second
-    println("xx: $xx, yy: $yy c: $c, position: $position")
+    //println("xx: $xx, yy: $yy c: $c, position: $position")
     return xx >= 0 && xx < matrix.size && yy >= 0 && yy < matrix[0].size && matrix[xx][yy] == c
 }
 
@@ -106,3 +96,14 @@ fun getDiagonals(matrix: List<List<Char>>): List<String> {
     }
     return diagonals
 }
+
+const val INPUT_TEXT_4 = "MMMSXXMASM\n" +
+        "MSAMXMSMSA\n" +
+        "AMXSXMAAMM\n" +
+        "MSAMASMSMX\n" +
+        "XMASAMXAMM\n" +
+        "XXAMMXXAMA\n" +
+        "SMSMSASXSS\n" +
+        "SAXAMASAAA\n" +
+        "MAMMMXMMMM\n" +
+        "MXMXAXMASX"
